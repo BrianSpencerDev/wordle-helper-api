@@ -1,8 +1,8 @@
-function findWords(letterStr) {
+function findWords(letterStr, words) {
     let wordsWith = [];
 
     //convert input string to array of letters
-    const letters = input.split('');
+    const letters = letterStr.split('');
 
     //first take the list of words and search for the letters that we user cares about position
     wordsWith = findWordsWithCharPos(letters, words);
