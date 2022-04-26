@@ -1,0 +1,22 @@
+{
+  "name": "wordle-helper-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrianSpencerDev/wordle-helper-api.git"
+  },
+  "author": "Brian Spencer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrianSpencerDev/wordle-helper-api/issues"
+  },
+  "homepage": "https://github.com/BrianSpencerDev/wordle-helper-api#readme",
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
