@@ -1,9 +1,14 @@
 const express = require('express');
+const loadWords = require('./loadWords');
 
 const app = express();
 
+//load words into array
+const words = loadWords();
+
 app.get('/', (req, res) => {
-    res.send('wordle-helper')
+    console.log(words);
+    res.send("wordle helper");
 }) 
 
 app.listen(3000, () => {
