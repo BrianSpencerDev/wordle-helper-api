@@ -4,7 +4,7 @@ function findWords(letterStr, words) {
     //convert input string to array of letters
     const letters = letterStr.split('');
 
-    //first take the list of words and search for the letters that we user cares about position
+    //first take the list of words and search for the letters where position matters
     wordsWith = findWordsWithCharPos(letters, words);
 
     //second take the new list of words and search for the letters where position does not matter
