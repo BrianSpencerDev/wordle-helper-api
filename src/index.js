@@ -36,9 +36,7 @@ app.get(
     const results = {
         words: wordsWith
     }
-    res.json(results);
+    res.status(200).json(results);
 }) 
 
-app.listen(3000, () => {
-    console.log('Server  is running on port 3000')
-})
+module.exports = app;
