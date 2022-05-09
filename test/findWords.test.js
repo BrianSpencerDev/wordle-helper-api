@@ -4,6 +4,10 @@ test('properly find words in array with desired letters where position doesnt ma
     expect(findWords('ar', ['cigar', 'tidal', 'route', 'clone', 'acorn'])).toEqual(
         ['acorn', 'cigar']
     );
+
+    expect(findWords('ee', ['cigar', 'tidal', 'route', 'clone', 'acorn', 'melee', 'ember'])).toEqual(
+        ['ember', 'melee']
+    );
 })
 
 test('properly find words in array with desired letters where position matters', () => {
@@ -23,5 +27,9 @@ test('properly find words in array with desired letters', () => {
 
     expect(findWords('n?O', ['cigar', 'tidal', 'route', 'clone', 'acorn'])).toEqual(
         ['acorn','clone']
+    );
+
+    expect(findWords('e???E', ['cigar', 'tidal', 'route', 'clone', 'acorn', 'melee', 'ember'])).toEqual(
+        ['melee']
     );
 })
