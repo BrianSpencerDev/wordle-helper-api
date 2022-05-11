@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(express.json());
 
-//load words into array
+//load strings and frequencies into array
 const words = loadWords();
 
 app.get(
@@ -41,7 +41,8 @@ app.get(
     }
 
     const letters = req.body.letters;
-    const wordsWith = findWords(letters, words[0]);
+
+    const wordsWith = findWords(letters, words);
 
     const results = {
         words: wordsWith

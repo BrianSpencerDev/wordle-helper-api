@@ -7,8 +7,12 @@ function findWords(letterStr, words) {
     //first take the list of words and search for the letters where position matters
     wordsWith = findWordsWithCharPos(letters, words);
 
+    console.log(wordsWith);
+
     //second take the new list of words and search for the letters where position does not matter
     wordsWith = findWordsContaining(letters, wordsWith);
+
+    console.log(wordsWith);
 
     //sort array alphabetically
     wordsWith.sort();
@@ -21,7 +25,11 @@ function findWords(letterStr, words) {
 function findWordsContaining(arr1, arr2){
   const wordsWith = [];
   const frequency = {};
-  const wordsFrequency = [];
+  const wordsFrequency = arr2[1];
+
+  if (arr2[0].length === 0){
+    return wordsWith;
+  }
 
   //filter out ?s
   arr1 = arr1.filter(letter => letter !== '?' );
@@ -30,18 +38,6 @@ function findWordsContaining(arr1, arr2){
   for (const letter of arr1) {
     frequency[letter.toLowerCase()] ? frequency[letter.toLowerCase()] += 1 :     
     frequency[letter.toLowerCase()] = 1;
-  }
-
-  //populate wordsFrequency array
-  for(const word of arr2) {
-    const freq = {};
-
-    //find frequency of chars in string
-    for(const char of word) {
-      freq[char] ? freq[char] += 1 : freq[char] = 1;
-    }
-    
-    wordsFrequency.push(freq)
   }
 
   //compare frequencies
@@ -64,21 +60,20 @@ function findWordsContaining(arr1, arr2){
     
     //if word contains desired letters add to wordsWith array
     if(doAdd) {
-      wordsWith.push(arr2[i])
+      wordsWith.push(arr2[0][i])
     }   
   }  
-  
-
   
   return wordsWith;
 }
 
 function findWordsWithCharPos(arr1, arr2){
-  const wordsWith = [];
+  const wordsWith = [ [], [] ];
   const letterPos = {};
+  const words = arr2[0];
 
   //populate arr with 0
-  const numOfLettersIn = new Array(arr2.length).fill(0);
+  const numOfLettersIn = new Array(words.length).fill(0);
 
   
   //check to see if letter is uppercase
@@ -95,17 +90,18 @@ function findWordsWithCharPos(arr1, arr2){
   for (const letter in letterPos){
     const position = letterPos[letter];
 
-    for (let i = 0; i < arr2.length; i++){
-      if(arr2[i].charAt(position) === letter){
+    for (let i = 0; i < words.length; i++){
+      if(words[i].charAt(position) === letter){
         numOfLettersIn[i]++;
       }
     }
   }
 
-  //if numOfLettersIn equals the num of positions add to wordsWith arr
+  //if numOfLettersIn equals the num of positions add to wordsWith
   for(let i = 0; i < numOfLettersIn.length; i++){
     if (positions === numOfLettersIn[i]){
-      wordsWith.push(arr2[i]);
+      wordsWith[0].push(words[i]);
+      wordsWith[1].push(arr2[1][i]);
     }
   }
 
