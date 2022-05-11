@@ -87,8 +87,6 @@ function findWordsWithCharPos(arr1, arr2){
       letterPos[arr1[i].toLowerCase()] = i;
     }
   }
-
-  arr1 = filterOutPos(arr1);
   
   //number of total positions letter to be searched
   const positions = Object.keys(letterPos).length;
@@ -114,14 +112,5 @@ function findWordsWithCharPos(arr1, arr2){
   return wordsWith;
 }
 
-function filterOutPos(arr){
-  //take out positonal letters out of arr1
-  arr = arr.filter(letter => letter !== letter.toUpperCase() );
-
-  //take out question marks out of letters
-  arr = arr.filter(letter => letter !== '?' );
-
-  return arr
-}
 
 module.exports = findWords;
