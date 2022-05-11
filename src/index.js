@@ -41,7 +41,7 @@ app.get(
     }
 
     const letters = req.body.letters;
-    const wordsWith = findWords(letters, words);
+    const wordsWith = findWords(letters, words[0]);
 
     const results = {
         words: wordsWith
