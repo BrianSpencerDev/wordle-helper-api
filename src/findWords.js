@@ -7,12 +7,8 @@ function findWords(letterStr, words) {
     //first take the list of words and search for the letters where position matters
     wordsWith = findWordsWithCharPos(letters, words);
 
-    console.log(wordsWith);
-
     //second take the new list of words and search for the letters where position does not matter
     wordsWith = findWordsContaining(letters, wordsWith);
-
-    console.log(wordsWith);
 
     //sort array alphabetically
     wordsWith.sort();

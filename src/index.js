@@ -1,5 +1,5 @@
 const express = require('express');
-const { check, validationResult } = require('express-validator');
+const { query, validationResult } = require('express-validator');
 const findWords = require('./findWords');
 const loadWords = require('./loadWords');
 
@@ -14,8 +14,8 @@ const words = loadWords();
 
 app.get(
     '/', 
-    //validate req.body.lettters
-    check('letters')
+    //validate req.query.letters
+    query('letters')
     .notEmpty()
     .withMessage('Letters cannot be empty')
     .isString()
@@ -40,7 +40,7 @@ app.get(
         return res.status(400).json({errors: errors.array()})
     }
 
-    const letters = req.body.letters;
+    const letters = req.query.letters;
 
     const wordsWith = findWords(letters, words);
 
