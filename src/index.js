@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { query, validationResult } = require('express-validator');
 const findWords = require('./findWords');
 const loadWords = require('./loadWords');
@@ -8,6 +9,8 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 
 app.use(express.json());
+
+app.use(cors());
 
 //load strings and frequencies into array
 const words = loadWords();
