@@ -1,7 +1,7 @@
 const app = require('./index');
-import {readFile} from 'fs/promises';
-import http from "http";
-import https from "https";
+const {readFile} = require('fs/promises');
+const http = require("http");
+const https = require("https");
 
 // app.listen(3000, () => {
 //     console.log('Server is running on port 3000')
