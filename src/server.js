@@ -24,7 +24,7 @@ const https = require("https");
         "utf8"
         );
         const ca = await readFile(
-        "/etc/letsencrypt/live/wordleapi.brian-spencer/chain.pem",
+        "/etc/letsencrypt/live/wordleapi.brian-spencer.com/chain.pem",
         "utf8"
         );
 
