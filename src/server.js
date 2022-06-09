@@ -11,7 +11,7 @@ const https = require("https");
     const httpServer = http.createServer(app);
   
     httpServer.listen(3000, () => {
-        logHandler.log("http", "http server listening on port 3000");
+        console.log("http", "http server listening on port 3000");
     });
 
     if (process.env.NODE_ENV === "production") {
@@ -37,6 +37,6 @@ const https = require("https");
         const httpsServer = https.createServer(credentials, app);
 
         httpsServer.listen(3080, () => {
-        logHandler.log("http", "https server listening on port 3080");
+        console.log("http", "https server listening on port 3080");
         })}
 })()
