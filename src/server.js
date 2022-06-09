@@ -7,7 +7,7 @@ const https = require("https");
 //     console.log('Server is running on port 3000')
 // })
 
-async () => {
+(async () => {
     const httpServer = http.createServer(app);
   
     httpServer.listen(3000, () => {
@@ -39,4 +39,4 @@ async () => {
         httpsServer.listen(3080, () => {
         logHandler.log("http", "https server listening on port 3080");
         })}
-}
+})()
